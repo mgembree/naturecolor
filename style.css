@@ -1,0 +1,15 @@
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+canvas { 
+  display: block;
+  margin: 0 auto;
+}
+
+body {
+  background-color: white;
+}

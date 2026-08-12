@@ -1,4 +1,8 @@
 let paintDrops = [];
+/* Cut-ups from 
+“Colors” - By Christina Rossetti
+“I Wandered Lonely as a Cloud” - By William Wordsworth
+“Grass” - By Joyce */
 const linePool = [
 	'Barley bed fountain',
 	'Rich and ripe',
@@ -8,9 +12,32 @@ const linePool = [
 	'saw then with waves',
 	'I sprout in enormous sky',
 	'Sun I eat the sun',
-  'summer twilight clouds',
-  'clouds are a fountain',
-  'twinkle the waves bliss '
+	'summer twilight clouds',
+	'clouds are a fountain',
+	'twinkle the waves bliss ',
+	'breeze golden trees',
+	'fluttering sparkling vales',
+	'jocund fills hills',
+	'the company daffodils',
+	'what small flowers',
+	'clouds a orange',
+	'yellow daffodils of bladed breeze',
+	'trees ending',
+	'my blue pears',
+	'green sky prairie',
+	'high twilight and solitude',
+	'pensive rose rain',
+	'dances vales green',
+	'ice enormous orange?',
+	'sky red bay',
+	'orange cloud clouds',
+	'violet ice gazed',
+	'milky lie sky',
+	'green? a white?',
+	'rose is not ice',
+	'orange dance in high',
+	'Ten orange?',
+	'company in trees blue'
 ];
 const lineAnchors = [
 	{ x: 0.12, y: 0.18 },
@@ -21,6 +48,7 @@ const lineAnchors = [
 ];
 let lastPaintSpawnX;
 let lastPaintSpawnY;
+let font;
 const paintDistanceThreshold = 45;
 const lineFontScale = 0.075;
 const lineFadeSpeed = 1;
@@ -32,6 +60,9 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	pixelDensity(1);
 	initializeTextSlots();
+}
+function preload(){
+	font = loadFont('./Figtree-VariableFont_wght.ttf');
 }
 
 function draw() {
@@ -134,6 +165,7 @@ function revealTextWithPaint() {
     noStroke();
     textAlign(LEFT, CENTER);
     textSize(min(width, height) * lineFontScale);
+		textFont(font);
     textStyle(BOLD);
 
     for (const slot of textSlots) {
@@ -158,7 +190,7 @@ function layoutSlotCharacters() {
 	push(); // Save the current drawing state
 	textAlign(LEFT, CENTER);
 	textSize(min(width, height) * lineFontScale);
-	textStyle(BOLD);
+	textFont(font);
 	const characterHeight = textAscent() + textDescent();
 
 	for (const slot of textSlots) {
